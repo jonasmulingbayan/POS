@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier In</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/cashier-money.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+</head>
+<body>
+    <div class = "cashout container-sm">
+        <div class = "container-sm">
+            <form>
+            <div class = "cashier-main-container">
+                <div class = "cashier-out-header">
+                    <h4 class = "text-white">MONEY COUNT FOR CASHIER IN</h4>
+                    <p class = "text-white">Please Enter Total Cash in your Cash Drawer.</p>
+                </div>
+                <div class = "cashier-out-button">
+                    <button type = "button" class = "btn"><i class="fa-solid fa-check"></i><p>DONE</p></button>
+                    <button type = "button" class = "btn"><i class="fa-solid fa-xmark"></i><p>CANCEL</p></button>
+                </div>
+            </div>
+            <div class="cashbreakdown">
+                <div class = "cashbreakdown-main">
+                    <p class = "cash-header">Cash Breakdown</p>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 1,000.00" disabled />
+                        <input id = "cash-money1" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(1)"/>
+                        <input id = "totalcash1" type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 500.00" disabled />
+                        <input id = "cash-money2" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(2)"/>
+                        <input id = "totalcash2"type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 200.00" disabled />
+                        <input id = "cash-money3" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(3)"/>
+                        <input id = "totalcash3" type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 100.00" disabled />
+                        <input id = "cash-money4" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(4)"/>
+                        <input id = "totalcash4" type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 50.00" disabled />
+                        <input id = "cash-money5" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(5)"/>
+                        <input id = "totalcash5" type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 20.00" disabled />
+                        <input id = "cash-money6" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(6)"/>
+                        <input id = "totalcash6" type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 10.00" disabled />
+                        <input id = "cash-money7" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(7)"/>
+                        <input id = "totalcash7" type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 5.00" disabled />
+                        <input id = "cash-money8" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(8)"/>
+                        <input id = "totalcash8" type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 1.00" disabled />
+                        <input id = "cash-money9" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(9)"/>
+                        <input id = "totalcash9" type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+
+                    <div class = "cashbreakdown-item">
+                        <input type = "text" class = "form-control" value = "Php 0.25" disabled />
+                        <input id = "cash-money10" type = "text" class = "form-control" name = "cash" oninput="calculateTotal(10)"/>
+                        <input id = "totalcash10" type = "text" class = "form-control" name = "totalcash" disabled />
+                    </div>
+                    <div class = "cashbreakdown-total">
+                        <input id = "hidden-item" type = "text" class = "form-control" disabled />
+                        <input id = "total-header" type = "text" class = "form-control" value = "TOTAL CASH" disabled />
+                        <input id = "total" type = "text" class = "form-control" name = "total" disabled/>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        </div>
+        
+    </div>
+
+<script>
+  function calculateTotal(itemNumber) {
+    const cashInput = document.getElementById('cash-money' + itemNumber);
+    const totalSpan = document.getElementById('totalcash' + itemNumber);
+    const totalInput = document.getElementById('total');
+
+    let cashAmount = cashInput.value.trim(); // Trim whitespace
+    if (cashAmount === "") {
+        totalSpan.value = '';
+        updateTotal();
+        return; // Exit the function early if input is blank
+    }
+
+    cashAmount = parseFloat(cashAmount.replace(/[^\d.]/g, '')); // Remove non-numeric characters
+
+    // Add commas for every 3 digits
+    cashInput.value = cashAmount.toLocaleString();
+
+    if (!isNaN(cashAmount)) {
+        const totalCash = cashAmount * getMultiplier(itemNumber);
+        // Format the result with commas and 2 decimal places
+        totalSpan.value = totalCash.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}); 
+    } else {
+        totalSpan.value = '';
+    }
+
+    updateTotal(); // Update the total
+}
+
+function updateTotal() {
+    // Calculate total of all totalcash inputs
+    let total = 0;
+    for (let i = 1; i <= 10; i++) {
+        const totalCashInput = document.getElementById('totalcash' + i);
+        if (totalCashInput.value) {
+            total += parseFloat(totalCashInput.value.replace(/[^\d.]/g, ''));
+        }
+    }
+    // Format the total with commas and 2 decimal places
+    document.getElementById('total').value = 'Php ' + total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}); 
+}
+
+function getMultiplier(itemNumber) {
+    switch (itemNumber) {
+        case 1:
+            return 1000;
+        case 2:
+            return 500;
+        case 3:
+            return 200;
+        case 4:
+            return 100;
+        case 5:
+            return 50;
+        case 6:
+            return 20;
+        case 7:
+            return 10;
+        case 8:
+            return 5;
+        case 9:
+            return 1;
+        case 10:
+            return 0.25;
+        default:
+            return 1;
+    }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

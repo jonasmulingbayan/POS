@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point of Sale</title>
+    <link rel="stylesheet" href="css/pos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+     <!-- Bootstrap CSS -->
+     <link href="library/bootstrap-5/bootstrap.min.css" rel="stylesheet" />
+     
+</head>
+<body>
+    <section class = "main-pos container-fluid">
+        <div class = "pos-container-header">
+            <div class = "pos-container-header-left">
+                <p>Jonas Mulingbayan</p>
+            </div>
+            <div class = "pos-container-header-center">
+                <p id = "datetime"></p>
+            </div>
+            <div class = "pos-container-header-right">
+                <p>No. of Items : <span>5</span></p>
+            </div>
+        </div>
+        <div class = "header-menu">
+            <button id = "f" type="button" class="btn pos-btn" data-bs-toggle="modal" data-bs-target="#reportModal">
+                <p class = "button-shortcut">F</p>
+                <i class="fa-solid fa-file-export"></i>
+                <p class = "pos-description" >Reports</p>
+            </button>
+            <button id = "q" type="button" class="btn pos-btn" data-bs-toggle="modal" data-bs-target="#payout">
+                <p class = "button-shortcut">Q</p>
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <p class = "pos-description" >Pay Out</p>
+            </button>
+            <button id = "w" type="button" class="btn pos-btn" data-bs-toggle="modal" data-bs-target="#creditModal">
+                <p class = "button-shortcut">W</p>
+                <i class="fa-solid fa-money-bill"></i>
+                <p class = "pos-description" >Credit Payment</p>
+            </button>
+
+            <button id = "e" type="button" class="btn pos-btn" data-bs-toggle="modal" data-bs-target="#changePrice">
+                <p class = "button-shortcut">E</p>
+                <i class="fa-solid fa-money-check"></i>
+                <p class = "pos-description" >Credit List</p>
+            </button>
+
+            <button id = "r" type="button" class="btn pos-btn" data-bs-toggle="modal" data-bs-target="#customerlistModal">
+                <p class = "button-shortcut">R</p>
+                <i class="fa-solid fa-users"></i>
+                <p class = "pos-description" >Customer List</p>
+            </button>
+
+            <button id = "t" type="button" class="btn pos-btn">
+                <p class = "button-shortcut">T</p>
+                <i class="fa-solid fa-folder"></i>
+                <p class = "pos-description" >Receipt Notes</p>
+            </button>
+
+            <button id = "y" type="button" class="btn pos-btn" data-bs-toggle="modal" data-bs-target="#recallModal">
+                <p class = "button-shortcut">Y</p>
+                <i class="fa-solid fa-scroll"></i>
+                <p class = "pos-description" >Recall</p>
+            </button>
+
+            <button id = "u" type="button" class="btn pos-btn" data-bs-toggle="modal" data-bs-target="#searchModal">
+                <p class = "button-shortcut">U</p>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <p class = "pos-description" >Search</p>
+            </button>
+
+            <button id = "i" type="button" class="btn pos-btn" data-bs-toggle="modal" data-bs-target="#allItemDiscountModal">
+                <p class = "button-shortcut">I</p>
+                <i class="fa-solid fa-percent"></i>
+                <p class = "pos-description" >Discount</p>
+            </button>
+
+            <button id = "o" type="button" class="btn pos-btn" data-bs-toggle="modal" data-bs-target="#paymentModal">
+                <p class = "button-shortcut">O</p>
+                <i class="fa-solid fa-wallet"></i>
+                <p class = "pos-description" >Payment</p>
+            </button>
+
+            <button id = "l" type="button" class="btn pos-btn">
+                <p class = "button-shortcut">L</p>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <p class = "pos-description" >Logout</p>
+            </button>
+        </div>
+        <hr style = "color:#fff;margin:10px;font-weight: bold;"/>
+
+        <div class = "select-item-price-container">
+           <div class = "select-item-price-container-left ">
+            
+            <select name="select_box" id="select_box" class="form-select form-select-lg mb-3" aria-label="Large select example">
+                <option value = "">Select Item</option>
+                <option value="CORNED BEEF">CORNED BEEF</option>
+                <option value="PANCIT CANTON">PANCIT CANTON</option>
+                <option value="SIOMAI">SIOMAI</option>
+            </select>
+            <button id="enterButton" type="submit" class="btn">ENTER</button>
+
+           </div> 
+           <div class = "select-item-price-container-right">
+            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#priceInquiryModal">PRICE INQUIRY</button>
+           </div> 
+        </div>
+
+        <div class = "item-container">
+            <div class = "container-items">
+                <div class = "item-container-header">
+                    <p class = "first-p">No.</p>
+                    <p class = "second-p">Product Code</p>
+                    <p class = "third-p">Product Name</p>
+                    <p class = "fourth-p">Description</p>
+                    <p class = "fifth-p">Qty</p>
+                    <p class = "sixth-p">Price</p>
+                    <p class = "seventh-p">Extended</p>
+                </div>
+
+                <button class="btn item-container-header">
+                    <p class = "first-p">1</p>
+                    <p class = "second-p">98322</p>
+                    <p class = "third-p">Ice Cream</p>
+                    <p class = "fourth-p">Delicious</p>
+                    <p class = "fifth-p">2</p>
+                    <p class = "sixth-p">200.00</p>
+                    <p class = "seventh-p">400.00</p>
+                </button>
+
+                <button class="btn item-container-header">
+                    <p class = "first-p">1</p>
+                    <p class = "second-p">98322</p>
+                    <p class = "third-p">Ice Cream</p>
+                    <p class = "fourth-p">Delicious</p>
+                    <p class = "fifth-p">2</p>
+                    <p class = "sixth-p">200.00</p>
+                    <p class = "seventh-p">400.00</p>
+                </button>
+            </div>
+        </div>
+        <div class = "customer-information">
+            <div class = "customer-container">
+                <center><h5>Customer Info</h5></center>
+                <div class = "customer-name">
+                    <p>Name:</p>
+                    <p>Walk in</p>
+                </div>
+                <div class = "customer-contact">
+                    <p>Contact:</p>
+                    <p>N/A</p>
+                </div>
+                <hr style = "color:#fff;margin:10px 0;font-weight: bold;"/>
+                <div class = "customer-name">
+                    <p>Last Transaction:</p>
+                    <p></p>
+                </div>
+                <div class = "customer-contact">
+                    <p>Total Purchased:</p>
+                    <p>0.00</p>
+                </div>
+            </div>
+            <div class = "customer-container">
+                <center><h5>Transaction Total</h5></center>
+                <div class = "customer-name">
+                    <p>Sub Total:</p>
+                    <p>Php 120.00</p>
+                </div>
+                <div class = "customer-contact">
+                    <p>Transaction Discount:</p>
+                    <p>Php 60.00</p>
+                </div>
+                <div style = "display: flex;justify-content: flex-end;">
+                   <hr style = "color:#fff;margin:10px 0 15px 0;font-weight: bold;width:50%;"/>
+                </div>
+                <div class = "customer-total">
+                    <p>TOTAL:</p>
+                    <p>Php 60.00</p>
+                </div>
+            </div>
+        </div>
+        <div class = "item-price-container mb-4">
+            <div class = "item-price">
+                <p>Ice Cream</p>
+                <p>Php 200.00</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- SELECT LEVEL PRICE MODAL -->
+    <div class="modal fade" id="changePrice" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changePriceLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header" style = "justify-content: center;">
+                        <h1 class="modal-title fs-5" id="changePriceLabel">SELECT LEVEL PRICE</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "radio-button-containers">
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="level_price" id="level_price1">
+                                <label for="level_price1">
+                                <p>DEFAULT<br>PRICE</p>
+                                <p>40.00</p>
+                                </label>
+                            </div>
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="level_price" id="level_price12" checked>
+                                <label for="level_price12">
+                                <p>RESELLER<br>PRICE</p>
+                                <p>38.00</p>
+                                </label>
+                            </div>
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="level_price" id="level_price3">
+                                <label for="level_price3">
+                                <p>DISTRIBUTOR<br>PRICE</p>
+                                <p>37.00</p>
+                                </label>
+                            </div>
+                            <div id = "for-custom-price" class="radio-button">
+                                <input class="form-check-input" type="radio" name="level_price" id="level_price4">
+                                <label for="level_price4">
+                                <p>CUSTOM PRICE</p>
+                                <input type="text" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46" />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn"><i class="fa-solid fa-check"></i><p>OK</p></button>
+                        <button id="closeButton" type="button" class="btn" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i><p>CANCEL</p></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- SELECT LEVEL PRICE MODAL END -->
+
+    <!-- PAYMENT MODAL -->
+    <div class="modal fade" id="paymentModal" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="changePriceLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header" style = "justify-content: center;">
+                        <h1 class="modal-title fs-5" id="changePriceLabel">PLEASE ENTER CASH TENDERED</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "radio-button-containers">
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="payment_type" id="payment_type1" checked>
+                                <label for="payment_type1">
+                                <center><i class="fa-solid fa-money-bill"></i></center>
+                                <p>CASH</p>
+                                </label>
+                            </div>
+                         
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="payment_type" id="payment_type2">
+                                <label for="payment_type2">
+                                    <center><i class="fa-regular fa-credit-card"></i></center>
+                                <p>CREDIT</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class = "payment-info-container">
+                            <div class = "payment-info-container-header">
+                                <div class = "payment-info-container-first">
+                                    <p>AMOUNT DUE</p>
+                                    <p>No. of item(s) 7</p>
+                                </div>
+                                <div class = "payment-info-container-second">
+                                    <p>PHP</p>
+                                    <p>200</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "cash-tendered-container">
+                            <div class = "cash-tendered-container-left">
+                                <p>Cash Tendered</p>
+                                <div class = "cash-tendered-container-left-button">
+                                    <input type="text" class="form-control" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46" required/>
+                                    <button type="button" class="btn">500</button>
+                                    <button type="button" class="btn">1000</button>
+                                </div>
+                            </div>
+                            <div class = "cash-tendered-container-right">
+                                <button type="submit" class="btn"><i class="fa-solid fa-check"></i><p>OK</p></button>
+                                <button id="closeButton" type="button" class="btn" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i><p>CANCEL</p></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- PAYMENT MODAL END -->
+
+    <!-- SEARCH PRODUCT MODAL -->
+    <div class="modal fade" id="searchModal" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header" style = "justify-content: center;">
+                        <h1 class="modal-title fs-5" id="searchModalLabel">PRODUCT LOOKUP</h1>
+                    </div>
+                    <div class="modal-body">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn"><i class="fa-solid fa-check"></i><p>OK</p></button>
+                        <button id="closeButton" type="button" class="btn" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i><p>CANCEL</p></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- SEARCH PRODUCT MODAL END -->
+
+
+    <!-- ITEM DISCOUNT MODAL -->
+    <div class="modal fade" id="allItemDiscountModal" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="allItemDiscountLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header" style = "justify-content: center;">
+                        <h1 class="modal-title fs-5" id="allItemDiscountLabel">ITEM DISCOUNT</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "radio-button-containers">
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="alldiscount_type" id="alldiscount_type1">
+                                <label for="alldiscount_type1">10 PESO OFF</label>
+                            </div>
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="alldiscount_type" id="alldiscount_type2" checked>
+                                <label for="alldiscount_type2">50% OFF</label>
+                            </div>
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="alldiscount_type" id="alldiscount_type3">
+                                <label for="alldiscount_type3">FREE ITEM</label>
+                            </div>
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="alldiscount_type" id="alldiscount_type4">
+                                <label for="alldiscount_type4">SENIOR DISCOUNT</label>
+                            </div>
+                            <div class="radio-button">
+                                <input class="form-check-input" type="radio" name="alldiscount_type" id="alldiscount_type5">
+                                <label for="alldiscount_type5">CASH DISCOUNT</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class = "modal-footer-button-first">
+                            <button type="submit" class="btn"><i class="fa-solid fa-check"></i><p>OK</p></button>
+                            <button id="closeButton" type="button" class="btn" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i><p>CANCEL</p></button>
+                        </div>
+                        <div class = "modal-footer-button-second">
+                            <button type="button" class="btn" data-bs-dismiss="modal"><i class="fa-sharp fa-solid fa-trash" style = "font-size:20px;"></i><p>REMOVED DISCOUNT</p></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ITEM DISCOUNT MODAL END -->
+
+    <!-- PRICE INQUIRY MODAL -->
+    <div class="modal fade" id="priceInquiryModal" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="priceInquiryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="priceInquiryModalLabel">PRICE INQUIRY</h1>
+                        <button id="closeButton" type="button" class="btn" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div class="modal-body">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+
+                        <div class="product-result d-flex justify-content-center align-items-center" style="height: 200px;">
+                            <h1>ICE CREAM</h1>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center align-items-center">
+                        <h2>Php 200.00</h2>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- PRICE INQUIRY MODAL END -->
+
+     <!-- RECALL MODAL -->
+     <div class="modal fade" id="recallModal" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="recallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="priceInquiryModalLabel">RECALL TRANSACTIONS</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "recall-container">
+                            <div class = "recall-container-left">
+                                <div class = "recall-container-item">
+                                    <p class="search-header">Search by Date</p>
+                                    <input type="date" class="form-control"/>
+                                    <button type="button" class="btn recall-btn" disabled>
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                        <p class = "pos-description" >Select Report Date</p>
+                                    </button>
+
+                                    <div class = "recall-details">
+                                        <div class = "recall-details-header">
+                                            <p style = "border-right:2px solid #fff;">#</p>
+                                            <p>TIME</p>
+                                        </div>
+                                        <button type = "button" class = "btn recall-details-item">
+                                            <p>1</p>
+                                            <p>10:02 AM</p>
+                                        </button>
+                                        <button type = "button" class = "btn recall-details-item">
+                                            <p>2</p>
+                                            <p>05:30 AM</p>
+                                        </button>
+                                        <button type = "button" class = "btn recall-details-item">
+                                            <p>3</p>
+                                            <p>11:00 PM</p>
+                                        </button>
+                                    </div>
+                                    <p style = "padding:15px 0 10px 0; text-align: center;margin:0;">Click to view the details</p>
+                                </div>
+                            </div>
+                            <div class = "recall-container-right">
+                                <div class = "recall-container-right-items">
+                                    <div class = "recall-container-right-buttons" >
+                                        <button type = "button" class = "btn">Reprint<br>Receipt</button>
+                                        <button type = "button" class = "btn">Void<br>Item</button>
+                                        <button type = "button" class = "btn">Void<br>Invoice</button>
+                                        <button type = "button" class = "btn">Return<br>Item</button>
+                                        <button type = "button" class = "btn">Reprint<br>Invoice</button>
+                                        <button id="closeButton" type = "button" class = "btn" data-bs-dismiss="modal">Exit</buton>
+                                    </div>
+                                    <hr style = "margin:8px 10px;">
+                                    <div class = "item-container" style = "border:1px solid #313131;">
+                                        <div class = "container-items">
+                                            <div class = "item-container-header">
+                                                <p class = "first-p">No.</p>
+                                                <p class = "second-p">Product<br>Code</p>
+                                                <p class = "third-p">Product Name</p>
+                                                <p class = "fourth-p">Description</p>
+                                                <p class = "fifth-p">Qty</p>
+                                                <p class = "sixth-p">Price</p>
+                                                <p class = "seventh-p">Extended</p>
+                                            </div>
+                            
+                                            <button type = "button" class="btn item-container-header">
+                                                <p class = "first-p">1</p>
+                                                <p class = "second-p">98322</p>
+                                                <p class = "third-p">Ice Cream</p>
+                                                <p class = "fourth-p">Delicious</p>
+                                                <p class = "fifth-p">2</p>
+                                                <p class = "sixth-p">200.00</p>
+                                                <p class = "seventh-p">400.00</p>
+                                            </button>
+                            
+                                            <button type = "button" class="btn item-container-header">
+                                                <p class = "first-p">1</p>
+                                                <p class = "second-p">98322</p>
+                                                <p class = "third-p">Ice Cream</p>
+                                                <p class = "fourth-p">Delicious</p>
+                                                <p class = "fifth-p">2</p>
+                                                <p class = "sixth-p">200.00</p>
+                                                <p class = "seventh-p">400.00</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class = "recall-container-right-footer">
+                                        <div class = "recall-container-right-footer-transaction">
+                                            <p>TRANSACTION DETAILS</p>
+                                            <p>-</p>
+                                            <p>-</p>
+                                            <p>-</p>
+                                        </div>
+                                        <div class = "recall-container-right-footer-details">
+                                            <div class = "recall-container-right-footer-item">
+                                                <p>Customer Name:</p>
+                                                <p>-</p>
+                                            </div>
+                                            <div class = "recall-container-right-footer-item">
+                                                <p>Cash Tendered:</p>
+                                                <p>-</p>
+                                            </div>
+                                            <div class = "recall-container-right-footer-item">
+                                                <p>No. of Item(s):</p>
+                                                <p>0</p>
+                                            </div>
+                                        </div>
+                                        <div class = "recall-customer-container">
+                                            <center><h5>Transaction Total</h5></center>
+                                            <div class = "recall-customer-name">
+                                                <p>Sub Total:</p>
+                                                <p>Php 120.00</p>
+                                            </div>
+                                            <div class = "recall-customer-contact">
+                                                <p>Discount:</p>
+                                                <p>Php 60.00</p>
+                                            </div>
+                                            <div style = "display: flex;justify-content: flex-end;">
+                                               <hr style = "color:#313131;margin:10px 0 15px 0;font-weight: bold;width:50%;"/>
+                                            </div>
+                                            <div class = "recall-customer-total">
+                                                <p>TOTAL:</p>
+                                                <p>Php 60.00</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- RECALL MODAL END -->
+
+
+    <!-- CREDIT PAYMENT MODAL -->
+    <div class="modal fade" id="creditModal" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="creditModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered ">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="creditModalLabel">RECEIVED PAYMENT FROM CUSTOMERS</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div id = "credits" class = "credits-main-container">
+                            <div class = "credit-left">
+                                <h3>Customer Info</h3>
+                                <div class = "credit-item">
+                                    <div class = "mb-2">
+                                        <label>Contact No.</label>
+                                        <input type = "text" class = "form-control" name = "contact"/>
+                                    </div>
+                                    <div class = "mb-2">
+                                        <label>Customer Name</label>
+                                        <input type = "text" class = "form-control" name = "customername"/>
+                                    </div>
+                                    <div class = "mb-2">
+                                        <label>Address</label>
+                                        <textarea class = "form-control" name="address"></textarea>
+                                    </div>
+                                    <div class = "credit-balance  mb-2">
+                                        <label>CREDIT BALANCE</label>
+                                        <input type = "text" class = "form-control" name = "balance" value = "Php0.00" readonly/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class = "credit-right">
+                                <h3>Payment Details</h3>
+                                <div class = "credit-item">
+                                    <div class = "mb-2">
+                                        <label>AMOUNT RECEIVED</label>
+                                        <input type = "text" class = "form-control" name = "amount-received"/>
+                                    </div>
+                                    <div class = "mb-2">
+                                        <label>Note</label>
+                                        <textarea class = "form-control" name="address"></textarea>
+                                    </div>
+
+                                    <div class = "lastpaymentdate mb-2">
+                                        <p class = "top">Last Payment Date</p>
+                                        <p class = "dates">May 6, 2024</p>
+                                    </div>
+
+                                    <div class = "modal-buttons">
+                                        <button type="button" class="btn">RECORD</button>
+                                        <button id="closeButton" type="button" class="btn" data-bs-dismiss="modal">CANCEL</button>
+            
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- CREDIT PAYMENT MODAL END -->
+
+    <!-- PAYOUT MODAL -->
+    <div class="modal fade" id="payout" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="payoutLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header" style = "justify-content: center;">
+                        <h1 class="modal-title fs-5" id="payoutLabel">PAYOUT</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "payout-item">
+                            <h6>Record your daily expenses</h6>
+                            <div class = "pay-item">
+                                <div class = "mb-2">
+                                    <label>PAY OUT TO:</label>
+                                    <input type = "text" class = "form-control" name = "payout"/>
+                                </div>
+                                <div class = "mb-2">
+                                    <label>AMOUNT</label>
+                                    <input type = "text" class = "form-control" name = "amount"/>
+                                </div>
+                                <div class = "mb-2">
+                                    <label>DESCRIPTION</label>
+                                    <textarea class = "form-control" name="description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                            <button type="submit" class="btn"><i class="fa-solid fa-check"></i><p>OK</p></button>
+                            <button id="closeButton" type="button" class="btn" data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i><p>CANCEL</p></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- PAYOUT MODAL END -->
+
+    <!-- CUSTOMER LIST MODAL -->
+    <div class="modal fade" id="customerlistModal" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="customerlistModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <div>
+                            <h1 class="modal-title fs-5" id="customerlistModalLabel">SEARCH CUSTOMER RECORDS</h1>
+                        </div>
+                        <div>
+                            <button type = "button" class = "btn add-customer">ADD CUSTOMER</button>
+                            <button type = "button" class = "btn okay">OK</button>
+                            <button id = "closeButton" type = "button" class = "btn cancel" data-bs-dismiss="modal">CANCEL</button>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "customerlist-container">
+                            <div class = "customerlist-left">
+                                <input type = "text" class = "form-control" name = "customername"/>
+                                <div class = "customerlist-header">
+                                    <div id = "for-head" class = "customerlist-item">
+                                        <p class = "header">Customer Code</p>
+                                        <p class = "header">Customer Name</p>
+                                    </div>
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+                                    <button class = "customerlist-item btn">
+                                        <p>098822222</p>
+                                        <p>Jonas</p>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class = "customerlist-right">
+                                <h5>Customer Details</h5>
+                                <div class = "cs-details">
+                                    <div class = "cs-image">
+                                        <img src="https://via.placeholder.com/100" alt="Temporary Image">
+                                    </div>
+                                    <div class = "cs-name">
+                                        <p>Name: Jonas</p>
+                                        <p>Contact #: 09352232222322</p>
+                                        <p>Address: Bacoor Cavite</p>
+                                    </div>
+                                </div>
+                                <h6 class = "mt-2">Highlights</h6>
+                                <div class = "count-container">
+                                    <div class = "count-item">
+                                        <p class = "count">0</p>
+                                        <p class = "count-header" >Total Visit</p>
+                                    </div>
+                                    <div class = "count-item">
+                                        <p class = "count">0.00</p>
+                                        <p class = "count-header" >Total Purchased</p>
+                                    </div>
+                                    <div class = "count-item">
+                                        <p class = "count">-</p>
+                                        <p class = "count-header" >Last Visit</p>
+                                    </div>
+                                </div>
+                                <div class = "count-container">
+                                    <div class = "count-item">
+                                        <p class = "count" style = "color:blue">0.00</p>
+                                        <p class = "count-header" >Credit Limit</p>
+                                    </div>
+                                    <div class = "count-item">
+                                        <p class = "count" style = "color:blue">0.00</p>
+                                        <p class = "count-header" >Credit Balance</p>
+                                    </div>
+                                    <div class = "count-item">
+                                        <p class = "count" style = "color:blue">0.00</p>
+                                        <p class = "count-header" >Available Credit</p>
+                                    </div>
+                                </div>
+                                <div class = "rewards-container">
+                                    <div class = "rewards-left">
+                                        <h6>Rewards</h6>
+                                        <div class = "points-container">
+                                            <p class="points">0</p>
+                                            <p class="points-header">Reward Points</p>
+                                        </div>
+                                    </div>
+                                    <div class = "rewards-right">
+                                        <h6>Command</h6>
+                                        <div class = "cmd-btn">
+                                            <div class = "cmd-btn-containter">
+                                                <button type = "button" class="btn">Credit / Payment History</button>
+                                                <button type = "button" class="btn">Transaction History</button>
+                                            </div>
+                                            <div class = "cmd-btn-cont">
+                                                <button type = "button" class="btn">Redeem Points</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- PAYOUT MODAL END -->
+
+     <!-- REPORTS MODAL -->
+     <div class="modal fade" id="reportModal" style = "z-index:99999;"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="reportModal" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <form>
+                    <div class="modal-header">
+                        <div>
+                            <h1 class="modal-title fs-5" id="reportModalLabel">REPORTS</h1>
+                        </div>
+                        <div>
+                            <button id = "closeButton" type = "button" class = "btn cancel" data-bs-dismiss="modal">CANCEL</button>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class = "report-button-container">
+                            <button type = "button" class = "btn">Daily Sales</button>
+                            <button type = "button" class = "btn">Sales & Profit</button>
+                            <button type = "button" class = "btn">Top 100 Items</button>
+                            <button type = "button" class = "btn">Void Logs</button>
+                            <button type = "button" class = "btn">Time Records</button>
+                            <button type = "button" class = "btn">Payout Details</button>
+
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- REPORTS MODAL END -->
+
+    <script>
+        function updateTime() {
+            var now = new Date();
+            var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            var monthName = months[now.getMonth()];
+            var day = now.getDate();
+            var year = now.getFullYear();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var period = hour >= 12 ? 'PM' : 'AM';
+            hour = hour % 12 || 12;
+            var formattedDate = monthName + ' ' + day + ', ' + year;
+            var formattedTime = hour + ':' + (minute < 10 ? '0' : '') + minute + ' ' + period;
+            document.getElementById('datetime').textContent = formattedDate + ' - ' + formattedTime;
+        }
+        
+        updateTime(); // Call the function once to display initial time
+        
+        // Update time every second
+        setInterval(updateTime, 1000);
+      
+        document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('keydown', function(event) {
+                if (event.key === "Escape") {
+                    document.querySelectorAll('#closeButton').forEach(button => button.click());
+                } else if (event.key === "Enter") {
+                    document.getElementById('enterButton').click();
+                } else {
+                    const id = event.key.toLowerCase();
+                    const element = document.getElementById(id);
+                    if (element) element.click();
+                }
+            });
+        });
+
+    </script>
+    
+    <script src="library/bootstrap-5/bootstrap.bundle.min.js"></script>
+    <script src="library/dselect.js"></script>
+    <script>
+
+        var select_box_element = document.querySelector('#select_box');
+    
+        dselect(select_box_element, {
+            search: true
+        });
+    
+    </script>
+</body>
+</html>

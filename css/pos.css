@@ -1,0 +1,1333 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:#313131 !important;
+ 
+}
+/*POS HEADER CONTAINER*/
+.pos-container-header{
+    display: flex;
+    justify-content: space-between;
+    padding:5px 15px;
+}
+.pos-container-header p{
+    font-size:35px;
+    color:rgb(209, 189, 8);
+    font-weight: 600;
+}
+
+/*FIRST SECTION*/
+.header-menu{
+    padding:0 10px 0 10px;
+    display: flex;
+    gap:20px;
+    justify-content: right;
+}
+button.pos-btn{
+    border: 2px solid #fff;
+    width:120px;
+    padding:15px 5px;
+}
+
+button.pos-btn:focus,
+button.pos-btn:hover{
+    border: 2px solid #4eaf50;
+    background:#4eaf50 ;
+}
+i{
+    font-size:30px;
+    color:#fff;
+}
+
+.pos-description{
+    font-size:14px;
+    margin-bottom: -5px;
+    color:#fff;
+}
+
+.button-shortcut{
+    color:#fff;
+    background: red;
+    text-align:center;
+    border-radius: 3px;
+    width:30px;
+    font-size:20px;
+    margin-top:-15px
+    ;margin-left:-5px;
+}
+
+/*SECOND SECTION*/
+.select-item-price-container{
+    display: flex;
+    width:100%;
+    padding:0 10px;
+    justify-content: space-between;
+}
+.select-item-price-container-left{
+    display:flex;
+    gap:10px;
+}
+.select-item-price-container-left button{
+    font-size:15px;
+    height: 40px;
+    color:#fff;
+    background: #013758;
+    border-radius:2px;
+}
+.select-item-price-container-left select{
+    width:350px;
+    font-size:15px;
+    border-radius:2px; 
+}
+
+.select-item-price-container-right button{
+    font-size:15px;
+    width:150px;
+    color:#fff;
+    background: #4eaf50;
+    border-radius:2px;
+}
+.select-item-price-container-left button:hover,
+.select-item-price-container-left button:focus{
+    color:#fff !important;
+    background: #013758 !important;
+}
+.select-item-price-container-right button:hover,
+.select-item-price-container-right button:focus{
+    color:#fff !important;
+    background: #4eaf50 !important;
+}
+
+/*ITEM CONTAINER*/
+
+.item-container{
+    background: #fff;
+    height: 375px;
+    margin:0 10px;
+    overflow: auto;
+}
+
+
+.item-container-header{
+    position: sticky;
+    top:0;
+    z-index: 10 !important;
+    display: flex;
+    background: #013758;
+    padding:0;
+    color:#fff;
+}
+.item-container-header p{
+    
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:5px 10px;
+    margin:0;
+}
+.first-p,
+.fifth-p{
+    width:5%;
+}
+.fifth-p{
+    border-left: 2px solid #fff;
+}
+.sixth-p,
+.seventh-p,
+.second-p{
+    width:10%;
+    border-left: 2px solid #fff;
+}
+
+.third-p,
+.fourth-p{
+    width:30%;
+    border-left: 2px solid #fff;
+}
+
+button.item-container-header{
+    z-index: 0 !important;
+    display: flex;
+    padding:0;
+    border-radius: 0;
+    width:100%;
+    border-bottom: 1px solid #313131;
+    color:#000;
+}
+button.item-container-header:hover{
+    border-bottom: 1px solid #313131;
+    background: #4eaf50;
+    color:#fff;
+}
+button.item-container-header p {
+    font-size:15px;
+    font-weight: 600;
+    padding:5px 10px;
+    margin:0;
+    border:none;
+}
+
+/*CUSTOMER CONTAINER*/
+.customer-information{
+    display: flex;
+    justify-content: space-between;
+    gap:15px;
+    padding:15px 10px;
+    margin-top:15px;
+}
+.customer-container{
+    border:2px solid #fff;
+    border-radius:5px;
+    padding:10px;
+    width:100%;
+}
+.customer-total,
+.customer-name,
+.customer-contact{
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer-container p{
+    color:#fff;
+    font-weight: 500;
+    font-size:16px;
+}
+.customer-container h5{
+    font-weight: 600;
+    background: #313131;
+    text-align: center;
+    color:rgb(209, 189, 8);
+    margin-top:-27px;
+    width:170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customer-total p{
+    color:rgb(209, 189, 8);
+    font-size:35px;
+    margin-top:5px;
+
+}
+
+/*ITEM PRICE CONTAINER*/
+
+.item-price-container{
+    width:100%;
+    padding:0 10px;
+}
+
+.item-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:2px solid #fff;
+    border-radius:5px;
+    padding:30px 20px;
+    
+    height: 80px;
+}
+.item-price p{
+    color:rgb(209, 189, 8);
+    font-size:30px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/*MODAL CHANGE PRICE*/
+#changePrice .modal-header{
+    background: #013758;
+    color:#fff;
+}
+#changePrice .modal-body{
+    padding: 0;
+}
+
+#changePrice .radio-button-containers{
+    padding:10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#changePrice .radio-button-containers p{
+    text-align: center;
+}
+#changePrice .radio-button {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #313131;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width:150px;
+    height: 110px;
+}
+#changePrice #for-custom-price {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #313131;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width:465px;
+}
+#changePrice .radio-button input[type="radio"] {
+    display: none; /* Hide the actual radio input */
+}
+#changePrice .radio-button input[type="radio"]:checked + label {
+    background-color: #013758;
+    color: #fff;
+    border-radius: 5px;
+}
+#changePrice .radio-button label {
+    display: inline-block;
+    padding:10px;
+    width:150px;
+    height: 110px;
+}
+
+#changePrice #for-custom-price label {
+    display: inline-block;
+    padding:10px;
+    width:465px;
+}
+#changePrice .radio-button input[type="text"] {
+    width: 100%; /* Adjust width as needed */
+    text-align: center;
+}
+#changePrice .radio-button input[type="text"]:focus{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+#changePrice .modal-header-container p{
+    color:#fff;
+    font-weight: 600;
+    margin: 0;
+}
+#changePrice .modal-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:5px 10px;
+}
+#changePrice .modal-footer button{
+    display: flex;
+    gap:5px;
+    justify-content: center;
+    align-items: center;
+    background: #013758;
+    width:48%;
+}
+#changePrice .modal-footer button p{
+    margin: 0;
+    color:#fff;
+}
+#changePrice .modal-footer button i{
+    font-size: 25px;
+}
+/*END*/
+
+/*PAYMENT MODAL*/
+#paymentModal .modal-header{
+    background: #013758;
+    color:#fff;
+}
+#paymentModal .modal-body{
+    padding: 0;
+}
+
+#paymentModal .radio-button-containers{
+    padding:10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:30px;
+}
+#paymentModal .radio-button-containers p{
+    text-align: center;
+}
+#paymentModal .radio-button {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #313131;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width:100px;
+}
+#paymentModal .radio-button input[type="radio"] {
+    display: none; /* Hide the actual radio input */
+}
+#paymentModal .radio-button input[type="radio"]:checked + label {
+    background-color: #013758;
+    color: #fff;
+    border-radius: 5px;
+}
+#paymentModal .radio-button input[type="radio"]:checked + label i{
+    color:#fff;
+}
+#paymentModal .radio-button label {
+    display: inline-block;
+    padding:10px;
+    width:100px;
+}
+
+#paymentModal .radio-button label p{
+    margin: 0;
+}
+#paymentModal .radio-button label i{
+    margin-top:5px;
+    color:#313131;
+}
+#paymentModal .radio-button input[type="text"] {
+    width: 100%; /* Adjust width as needed */
+    text-align: center;
+}
+#paymentModal .radio-button input[type="text"]:focus{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+#paymentModal .modal-header-container p{
+    color:#fff;
+    font-weight: 600;
+    margin: 0;
+}
+
+.payment-info-container{
+    padding:0 10px 5px 10px;
+}
+.payment-info-container-header{
+    border:2px solid #313131;
+    padding:5px 10px;
+    border-radius: 5px;
+}
+.payment-info-container-first,
+.payment-info-container-second{
+    display: flex;
+    justify-content: space-between;
+}
+.payment-info-container-first p{
+    font-size:13px;
+}
+.payment-info-container-second p{
+    font-size:25px;
+    font-weight: 800;
+    color:#313131;
+}
+
+.cash-tendered-container{
+    margin-top:10px;
+    margin-bottom: 10px;
+    display:flex;
+    justify-content: space-between;
+    gap:5px;
+    padding: 5px 10px;
+}
+.cash-tendered-container-left{
+    width:60%;
+    padding:8px 6px;
+    border:2px solid #313131;
+    border-radius:5px;
+}
+.cash-tendered-container-left p{
+    margin-top:-20px;
+    background: #fff;
+    width:110px;
+    text-align: center;
+}
+.cash-tendered-container-left-button{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+.cash-tendered-container-left-button input{
+    border:2px solid #013758;
+}
+.cash-tendered-container-left-button input:hover,
+.cash-tendered-container-left-button input:focus{
+    border:2px solid #013758;
+    outline: none !important;
+    box-shadow: none !important;
+}
+.cash-tendered-container-left-button button{
+    width:100%;
+    background: #013758;
+    color:#fff;
+}
+.cash-tendered-container-right{
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    padding:5px 7px;
+    border: 2px solid #313131;
+    gap:15px;
+    justify-content: space-around;
+    border-radius: 5px;
+}
+.cash-tendered-container-right button{
+    background:#013758;
+}
+.cash-tendered-container-right button i{
+    font-size:25px;
+}
+.cash-tendered-container-left-button button:hover,
+.cash-tendered-container-left-button button:focus,
+.cash-tendered-container-right button:hover,
+.cash-tendered-container-right button:focus{
+    background: #013758 !important;
+    color:#fff !important;
+}
+.cash-tendered-container-right button p{
+    color:#fff;
+    margin: 0;
+}
+/*END*/
+
+/*SEARCH PRODUCTS MODAL*/
+#searchModal .modal-header{
+    background: #013758;
+    color:#fff;
+}
+#searchModal .modal-body{
+    padding: 10px;
+}
+
+#searchModal select:focus{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#searchModal .modal-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:5px;
+}
+#searchModal .modal-footer button{
+    display: flex;
+    gap:5px;
+    justify-content: center;
+    align-items: center;
+    background: #013758;
+    width:48%;
+}
+
+#searchModal .modal-footer i{
+    font-size:25px;
+}
+#searchModal .modal-footer button p{
+    margin: 0;
+    color:#fff;
+}
+/*END*/
+
+/*ALL ITEM DISCOUNT MODAL*/
+#allItemDiscountModal .modal-header{
+    background: #013758;
+    color:#fff;
+}
+#allItemDiscountModal .modal-body{
+    padding: 5px;
+}
+
+#allItemDiscountModal .radio-button-containers{
+    padding:10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+}
+#allItemDiscountModal .radio-button-containers p{
+    text-align: center;
+}
+#allItemDiscountModal .radio-button {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #313131;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width:140px;
+    height: 100px;
+}
+
+#allItemDiscountModal .radio-button input[type="radio"] {
+    display: none; /* Hide the actual radio input */
+}
+#allItemDiscountModal .radio-button input[type="radio"]:checked + label {
+    background-color: #013758;
+    color: #fff;
+    border-radius: 5px;
+}
+#allItemDiscountModal .radio-button label {
+    display: inline-block;
+    padding:10px;
+    width:140px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#allItemDiscountModal #for-custom-price label {
+    display: inline-block;
+    padding:10px;
+    width:465px;
+}
+#allItemDiscountModal .modal-header-container p{
+    color:#fff;
+    font-weight: 600;
+    margin: 0;
+    
+}
+#allItemDiscountModal .modal-footer{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+#allItemDiscountModal .modal-footer .modal-footer-button-first{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:0;
+    width:100%;
+}
+#allItemDiscountModal .modal-footer .modal-footer-button-first button{
+    display: flex;
+    gap:5px;
+    justify-content: center;
+    align-items: center;
+    background: #013758;
+    width:48%;
+}
+#allItemDiscountModal .modal-footer button p{
+    margin: 0;
+    color:#fff;
+}
+#allItemDiscountModal .modal-footer i{
+    font-size:25px;
+}
+#allItemDiscountModal .modal-footer .modal-footer-button-second{
+    width:100%;
+}
+
+#allItemDiscountModal .modal-footer .modal-footer-button-second button{
+    display: flex;
+    gap:5px;
+    justify-content: center;
+    align-items: center;
+    background: #013758;
+    width:100%;
+}
+/*END*/
+
+/*PRICE INQUIRY MODAL*/
+#priceInquiryModal .modal-header{
+    background: #013758;
+    color:#fff;
+    border:none;
+    justify-content: space-between;
+}
+#priceInquiryModal .modal-header button{
+    border:none !important;
+}
+
+#priceInquiryModal .modal-header button:hover,
+#priceInquiryModal .modal-header button:focus{
+    
+    box-shadow: none !important;
+}
+
+#priceInquiryModal .modal-body{
+    background: #313131;
+}
+
+#priceInquiryModal .modal-body select:focus{
+    box-shadow: none !important;
+    border: none !important;
+    outline:  none !important;
+}
+#priceInquiryModal .modal-body h1{
+    color:#fff;
+    font-weight:800;
+    font-size:40px;
+}
+#priceInquiryModal .modal-footer{
+    border:none;
+    background: rgb(209, 189, 8);
+}
+#priceInquiryModal .modal-footer h2{
+    color:#fff;
+    font-weight: 700;
+    font-size:35px;
+}
+/*END*/
+
+/*RECALL MODAL*/
+#recallModal .modal-header{
+    background: #013758;
+    color:#fff;
+    border:none;
+    justify-content: space-between;
+}
+#recallModal .modal-header button{
+    border:none !important;
+}
+
+#recallModal .modal-header button:hover,
+#recallModal .modal-header button:focus{
+    box-shadow: none !important;
+}
+
+
+.recall-container{
+    display: flex;
+    justify-content: space-between;
+    gap:5px;
+}
+.recall-container-left{
+    width: 30%;
+}
+.recall-container-item{
+    border:2px solid #313131;
+    border-radius: 5px;
+    padding: 10px;
+}
+.recall-container-item .search-header{
+    margin-top:-20px;
+    text-align: center;
+    background: #fff;
+    width:115px;
+}
+
+.recall-container-item input[type="date"]{
+    border:2px solid #013758;
+}
+.recall-container-item input[type="date"]:focus{
+    box-shadow: none !important;
+}
+.recall-container-item .recall-btn{
+    background: #313131 !important;
+    opacity: 1 !important;
+    margin-top:5px;
+    display:flex;
+    gap:15px;
+    align-items: center;
+    padding:10px;
+    border-radius: 2px;
+    width: 100%;
+}
+.recall-container-item .recall-btn p{
+    font-size:20px;
+    margin: 0;
+}
+.recall-details{
+    margin-top:10px;
+    border:1px solid #313131;
+    height:500px;
+}
+.recall-details-header{
+    display: flex;
+    justify-content: space-around;
+    background: #013758;
+    align-items: center;
+}
+.recall-details-header p{
+    margin:0;
+    color:#fff;
+    font-weight: 600;
+    font-size:20px;
+    width:50%;
+    text-align: center;
+}
+
+button.recall-details-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width:100%;
+    border-bottom:1px solid #313131;
+    border-radius: 0;
+}
+button.recall-details-item:hover,
+button.recall-details-item:focus{
+    background: #4eaf50;
+}
+button.recall-details-item:hover p,
+button.recall-details-item:focus p{
+    color:#fff;
+}
+button.recall-details-item:focus{
+    border-bottom:1px solid #313131;
+    border-radius: 0;
+}
+button.recall-details-item p{
+    margin:0;
+    color:#313131;
+    font-weight: 600;
+    font-size:17px;
+    width:100%;
+    text-align: center;
+    
+}
+.recall-container-right{
+    width:70%;
+}
+.recall-container-right-items{
+    border:2px solid #313131;
+    border-radius: 5px;
+    padding: 8px 0 13px 0;
+}
+.recall-container-right-buttons{
+    padding:0 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-between;
+}
+.recall-container-right-buttons button{
+    height:70px;
+    width:80px;
+    background: #013758;
+    color:#fff;
+}
+
+.recall-container-right-buttons button:hover{
+    
+    background: #013758;
+    color:#fff;
+}
+
+#recallModal .item-container p{
+    font-size:12px;
+    text-align: center;
+}
+
+.recall-container-right-footer{
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+    padding:18px 10px 0px 10px;
+}
+.recall-container-right-footer-transaction{
+    padding:10px 5px;
+    background: red;
+    width: 100%;
+}
+.recall-container-right-footer-transaction p{
+    text-align: center;
+    line-height: 15px;
+    color:#fff;
+}
+.recall-container-right-footer-details{
+    width: 100%;
+    line-height: 10px;
+}
+.recall-container-right-footer-item{
+    display: flex;
+    justify-content: space-between;
+    padding:15px 10px;
+    background-color: #313131;
+    height:65px;
+    
+}
+.recall-container-right-footer-item p{
+    margin:0;
+    color:#fff;
+}
+.recall-customer-container{
+    width:100%;
+    border:1px solid #313131;
+    padding:5px 10px 0 10px;
+}
+.recall-customer-container h5{
+    margin-top:-20px;
+    background: #fff;
+    width:160px;
+    padding:0;
+}
+.recall-customer-name,
+.recall-customer-contact,
+.recall-customer-total{
+    display: flex;
+    justify-content: space-between;
+}
+.recall-customer-total p{
+    font-weight: bold;
+    font-size:20px;
+    color:rgb(209, 189, 8);
+    margin: 0;
+}
+
+/*END*/
+
+/*CREDIT MODAL*/
+#creditModal .modal-header{
+    background: #013758;
+    color:#fff;
+    border:none;
+    justify-content: space-between;
+}
+#creditModal .modal-body{
+    display: flex;
+    background: #313131;
+
+}
+#creditModal #credits{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:10px;
+    flex-wrap: wrap;
+    width:100%;
+}
+#credits h3{
+    font-size:19px;
+    color:#fff;
+}
+#creditModal .credit-left{
+    width:59%;
+}
+#creditModal .credit-right{
+    width:40%;
+}
+#creditModal .credit-item{
+    padding:8px;
+    border:2px solid #fff;
+    border-radius:5px;
+}
+#creditModal label{
+    color:#fff;
+    font-size:15px;
+}
+#creditModal .form-control:focus{
+    box-shadow: none !important;
+}
+#creditModal textarea{
+    height: 130px;
+}
+.credit-balance input{
+    font-size:37px;
+    border-radius: 0;
+    border:none;
+    background: red;
+    color:#fff;
+}
+.credit-balance input:focus{
+    background: red !important;
+    color:#fff !important;
+}
+.lastpaymentdate{
+    margin-top:35px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    padding:7px 5px;
+}
+.lastpaymentdate p{
+    margin:0;
+}
+.lastpaymentdate .top{
+    background: #313131;
+    padding:0 2px;
+    margin-top:-22px;
+    width:140px;
+    border-radius:3px;
+    text-align: center;
+    color:#fff;
+}
+.lastpaymentdate .dates{
+    text-align: center;
+    color:rgb(209, 189, 8);
+    padding-bottom:7px;
+    font-weight: 600;
+}
+.modal-buttons{
+    padding:4px 0;
+    display: flex;
+    justify-content: center;
+    gap:10px;
+}
+.modal-buttons button{
+    width:100%;
+    border:2px solid #fff;
+    color:#fff;
+    background: #013758;
+    height: 70px;
+}
+.modal-buttons button:hover,
+.modal-buttons button:focus{
+    border:2px solid #fff;
+    color:#fff !important;
+    background: #013758 !important;
+}
+/*END*/
+
+/*PAYOUT MODAL*/
+#payout .modal-header{
+    background: #013758;
+    color:#fff;
+    border:none;
+}
+#payout input:hover,
+#payout input:focus,
+#payout textarea:hover,
+#payout textarea:focus{
+    box-shadow: none;
+}
+#payout .modal-footer{
+    display: flex;
+    justify-content: center;
+}
+#payout .modal-footer button{
+    background:#013758;
+    color:#fff;
+    width:48%;
+    display:flex;
+    justify-content: center;
+    gap:10px;
+}
+#payout .modal-footer button p{
+    margin: 0;
+    font-size: 18px;
+}
+
+/*END*/
+
+.form-control:focus{
+    box-shadow: none !important;
+}
+/*CUSTOMER LIST MODAL*/
+#customerlistModal .modal-header{
+    background: #013758;
+    color:#fff;
+    border:none;
+    justify-content: space-between;
+}
+#customerlistModal .modal-header button{
+    color:#fff;
+}
+#customerlistModal .modal-header .cancel{
+    background: red;
+}
+#customerlistModal .modal-header .okay{
+    border:1px solid #fff;
+}
+#customerlistModal .modal-header .add-customer{
+    background: #fff;
+    color:#013758;
+}
+#customerlistModal .modal-body{
+    padding:0;  
+}
+#customerlistModal .customerlist-container{
+    width: 100%;
+    display: flex;
+}
+#customerlistModal .customerlist-left{
+    border-right: 1px solid #313131;
+    border-bottom: 1px solid #313131;
+    width:45%;
+}
+#customerlistModal .customerlist-left input{
+    border:2px solid blue;
+    border-radius:0;
+    background-color: #f1f1f1;
+}
+#customerlistModal .customerlist-right{
+    width:55%;
+    padding:5px;
+}
+#customerlistModal .customerlist-right h5{
+    width:100%;
+    background: #f1f1f1;
+    text-align: center;
+    padding:5px 0 7px 0;
+    border:1px solid #313131;
+}
+
+#customerlistModal .customerlist-right h6{
+    width:100%;
+    background: #f1f1f1;
+    text-align: center;
+    padding:3px 0 5px 0;
+    border:1px solid #313131;
+}
+
+#for-head{
+    position: sticky;
+    top:0;
+    z-index: 10 !important;
+    display: flex;
+    background: #013758;
+    padding:0;
+    color:#fff;
+}
+.customerlist-header{
+    overflow:auto;
+    height:390px;
+}
+#customerlistModal .customerlist-item{
+    display: flex;
+    justify-content: center;
+    gap:15px;
+    width: 100%;
+}
+#customerlistModal .customerlist-item p{
+    text-align: center;
+    padding:3px 10px;
+    font-size:17px;
+    margin:0;
+    width:50%;
+    color:#fff;
+}
+#customerlistModal button.customerlist-item{
+    border-radius:0;
+    border-bottom:1px solid #313131;
+}
+#customerlistModal button.customerlist-item:hover,
+#customerlistModal button.customerlist-item:focus{
+    background: #4eaf50;
+}
+#customerlistModal button.customerlist-item:hover p,
+#customerlistModal button.customerlist-item:focus p{
+    color: #fff ;
+}
+#customerlistModal button.customerlist-item p{
+    font-size: 15px;
+    margin:0;
+    color:#000;
+    
+}
+
+.cs-details{
+    display: flex;
+    padding:0;
+    gap:10px;
+}
+.cs-image img{
+    border:1px solid #313131;
+}
+.cs-name{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:3px;
+}
+.cs-name p{
+    margin:0;
+}
+
+.count-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom:5px;
+}
+.count-item{
+    width:33%;
+}
+.count-item p{
+    text-align: center;
+    margin:0;
+}
+.count-item .count{
+    color:red;
+    font-size:20px;
+    font-weight: bold;
+}
+.count-item .count-header{
+    font-size:18px;
+    font-weight: bold;
+}
+
+.rewards-container{
+    display: flex;  
+    width:100%;
+    padding:0;
+    gap:10px;
+}
+.rewards-left{
+    width:33%;
+}
+.rewards-right{
+    width:67%;
+}
+.points-container{
+    margin-top:15px;
+}
+.points-container .points{
+    color:red;
+    font-size:20px;
+    font-weight: bold;
+    text-align: center;
+    margin:0;
+}
+
+.points-container .points-header{
+    font-size:18px;
+    font-weight: bold;
+    text-align: center;
+    margin:0;
+
+}
+.cmd-btn{
+    display: flex;
+    gap:10px;
+}
+.cmd-btn-containter{
+    width:60%;
+}
+.cmd-btn-cont{
+    width:40%;
+}
+.cmd-btn-containter button{
+    background: red;
+    color:#fff;
+    width:100%;
+    margin-bottom:3px;
+}
+.cmd-btn-cont button{
+    background: #013758;
+    color:#fff;
+    width:100%;
+    height: 100%;
+}
+
+/*END*/
+
+/*REPORTS MODAL*/
+#reportModal .modal-header{
+    background: #013758;
+    color:#fff;
+    border:none;
+    justify-content: space-between;
+}
+#reportModal .modal-header button{
+    color:#fff;
+}
+#reportModal .modal-header .cancel{
+    background: red;
+}
+#reportModal .modal-header .okay{
+    border:1px solid #fff;
+}
+
+.report-button-container button{
+    background: #013758;
+    color:#fff;
+    height:75px;
+    width:85px;
+    margin-bottom:5px;
+}
+
+.report-button-container button:hover,
+.report-button-container button:focus{
+    background: #4eaf50 !important;
+    color:#fff !important;
+}
+
+/*END*/
+
+
+
+
+@media(max-width:1200px){
+    #creditModal .credit-left,
+    #creditModal .credit-right{
+        width:100%;
+    }
+
+    #customerlistModal .customerlist-container{
+        flex-wrap: wrap;
+    }
+   
+    #customerlistModal .customerlist-left{
+        width:100%;
+    }
+    #customerlistModal .customerlist-right{
+        width:100%;
+    }
+}
+
+@media(max-width:998px){
+    .pos-container-header p{
+        font-size:18px;
+    }
+
+    .header-menu{
+        flex-wrap:wrap;
+        gap:15px;
+        justify-content: left;
+    }
+
+    button.pos-btn{
+        width:90px;
+    }
+    
+    i{
+        font-size:23px;
+    }
+    
+    .pos-description{
+        font-size:12px;
+    }
+}
+
+@media(max-width:640px){
+    .select-item-price-container-left button{
+        width:80px;
+        margin-bottom:10px;
+    }
+    .select-item-price-container-left select{
+        width:200px;
+        font-size:15px;
+        border-radius:2px; 
+    }
+    
+    .select-item-price-container-right button{
+        width:130px;
+    }
+
+    .customer-information{
+        flex-wrap: wrap;
+    }
+    .customer-container p{
+        font-size:14px;
+    }
+    .customer-total p{
+        font-size:25px;
+    }
+
+    .item-container{
+        overflow-x:scroll;
+    }
+    .item-container-header{
+        width: 100%;
+    }
+    .item-container-header p{
+        font-size:15px;
+    }
+    button.item-container-header p {
+        font-size:13px;
+    }
+}
+
+@media(max-width:500px){
+    .select-item-price-container-left{
+        flex-direction: column;
+        gap:0;
+    }
+    .pos-container-header p{
+        font-size:13px;
+    }
+}

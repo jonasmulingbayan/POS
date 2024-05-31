@@ -1,0 +1,150 @@
+
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.cashout{
+    padding:20px;
+    border:2px solid #313131;
+    border-radius:8px;
+}
+.cashier-main-container{
+    background: #013785;
+    padding:10px 15px 5px 15px;
+    border-radius:8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cashbreakdown-main{
+    padding:10px;
+    border:2px solid #313131;
+    border-radius:8px;
+}
+.cash-header{
+    margin-top:-25px;
+    width:120px;
+    background: #fff;
+    text-align: center;
+}
+.cashbreakdown{
+    margin-top:25px;
+}
+
+.cashbreakdown-total{
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
+    gap:30px;
+}
+.cashbreakdown-total input{
+    border:1px solid #313131;
+    background: #013785 !important;
+    color:#fff;
+    font-weight: 600;
+    font-size:21px;
+    width:40%;
+}
+.cashbreakdown-total #hidden-item{
+    background: #fff !important;
+    border:none;
+
+}
+
+.cashbreakdown-total #total-header{
+    width:20%;
+    text-align: center;
+}
+.cashbreakdown-item{
+    display:flex;
+    justify-content: space-between;
+    gap:30px;
+    margin-bottom: 10px;
+    
+}
+
+.cashbreakdown-item input{
+    width:40%;
+    border:1px solid #313131;
+}
+
+#cash-money1,
+#cash-money2,
+#cash-money3,
+#cash-money4,
+#cash-money5,
+#cash-money6,
+#cash-money7,
+#cash-money8,
+#cash-money9,
+#cash-money10{
+    width:20%;
+}
+
+.cashier-out-button button{
+    background: #fff;
+    height: 65px;
+    width:90px;
+    color:#313131;       
+}
+
+.cashier-out-button button:hover,
+.cashier-out-button button:focus{
+    background: #013785 !important;
+    border: 2px solid #fff;
+    color:#fff !important;
+}
+
+.form-control:focus{
+    border:1px solid #013785 !important;
+    box-shadow: none !important;
+}
+
+@media(max-width:767px){
+    .cashier-main-container{
+        display: flex;
+        flex-direction: column;
+        padding:15px;
+    }
+    .cashier-out-header,
+    .cashier-out-button{
+        width: 100%;
+    }
+    .cashier-out-button{
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .cashier-out-header h4{
+        font-size:16px;
+    }
+    .cashier-out-button{
+        gap:15px;
+    }
+    .cashier-out-button button{
+        width:100%;
+        color:#313131;       
+    }
+}
+
+@media(max-width:650px){
+    .cashbreakdown-main{
+        padding:10px;
+    }
+    .cashbreakdown-item{
+        gap:8px;
+    }
+
+    .cashbreakdown-total{
+        gap:8px;
+    }
+}

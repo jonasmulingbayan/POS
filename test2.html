@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Sticky Notes</title>
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sticky-note {
+    width: 200px;
+    height: 200px;
+    background-color: yellow;
+    position: absolute;
+    cursor: grab;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.note-header {
+    background-color: #f1f1f1;
+    padding: 4px 8px;
+    border-bottom: 1px solid #ccc;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.note-content {
+    width: calc(100% - 16px);
+    height: calc(100% - 42px);
+    padding: 8px;
+    border: none;
+    resize: none;
+    font-family: Arial, sans-serif;
+}
+
+.close-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    float: right;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="sticky-note" class="sticky-note">
+            <textarea class="note-content" placeholder="Write something..."></textarea>
+            <div class="note-header">
+                <button class="close-btn" onclick="closeNote()">✖</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let note = document.getElementById('sticky-note');
+let isDragging = false;
+let initialX;
+let initialY;
+
+// Load note content from localStorage on page load
+window.addEventListener('DOMContentLoaded', function() {
+    const savedContent = localStorage.getItem('stickyNoteContent');
+    if (savedContent) {
+        note.querySelector('.note-content').value = savedContent;
+    }
+});
+
+note.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    initialX = e.clientX - getPositionX(note);
+    initialY = e.clientY - getPositionY(note);
+});
+
+document.addEventListener('mousemove', function(e) {
+    if (isDragging) {
+        const x = e.clientX - initialX;
+        const y = e.clientY - initialY;
+        const maxX = window.innerWidth - note.offsetWidth;
+        const maxY = window.innerHeight - note.offsetHeight;
+        
+        // Constrain within screen boundaries
+        const constrainedX = Math.min(Math.max(x, 0), maxX);
+        const constrainedY = Math.min(Math.max(y, 0), maxY);
+
+        note.style.left = `${constrainedX}px`;
+        note.style.top = `${constrainedY}px`;
+    }
+});
+
+document.addEventListener('mouseup', function() {
+    isDragging = false;
+});
+
+// Save note content to localStorage when content changes
+note.querySelector('.note-content').addEventListener('input', function() {
+    const content = this.value;
+    localStorage.setItem('stickyNoteContent', content);
+});
+
+function getPositionX(element) {
+    let xPosition = 0;
+    while (element) {
+        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        element = element.offsetParent;
+    }
+    return xPosition;
+}
+
+function getPositionY(element) {
+    let yPosition = 0;
+    while (element) {
+        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+    return yPosition;
+}
+
+function closeNote() {
+    note.style.display = 'none';
+}
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<section class="pos-container">
+    <div class="left-side">
+        <div class="first-row">
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/POS-icon.png"/>
+                <p class="pos-description">Point of Sales</p>
+                <span>Record Sales Transaction</span>
+            </button>
+
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/Inventory-icon.png"/>
+                <p class="pos-description">Inventory</p>
+                <span>Create, Edit and Update Inventory</span>
+            </button>
+
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/Report-icon.png"/>
+                <p class="pos-description">Reports</p>
+                <span>Sales Transaction Report</span>
+            </button>
+
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/CustomerFiles-icon.png"/>
+                <p class="pos-description">Customer Files</p>
+                <span>Manage Customer Records</span>
+            </button>
+        </div>
+
+        <div class="second-row">
+            <button type="button" class="btn date-today" id="date-today">
+                <h5></h5>
+            </button>
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/Import-icon.png"/>
+                <p class="pos-description">Import</p>
+                <span>Create New Inventory System</span>
+            </button>
+        </div>
+
+        <div class="first-row">
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/Cashier-icon.png"/>
+                <p class="pos-description">Cashier</p>
+                <span>Cashier In/Out</span>
+            </button>
+
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/Inventory-icon.png"/>
+                <p class="pos-description">Shopping List</p>
+                <span>Critical Inventory Items</span>
+            </button>
+
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/Report-icon.png"/>
+                <p class="pos-description">Stocks</p>
+                <span>Received and Update Stocks</span>
+            </button>
+
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/timecard-icon.png"/>
+                <p class="pos-description">Time Card</p>
+                <span>Employee's Time in/out</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="right-side">
+        <div class="first-row">
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/POS-icon.png"/>
+                <p class="pos-description">Database</p>
+                <span></span>
+            </button>
+
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/payout-icon.png"/>
+                <p class="pos-description">Pay Out</p>
+                <span>Record Daily Expenses</span>
+            </button>
+        </div>
+
+        <div class="first-row">
+            <button type="button" class="btn pos-btn">
+                <img class="pos-image" src="images/backoffice-icon.png"/>
+                <p class="pos-description">Back Office</p>
+                <span>Program Configuration</span>
+            </button>
+
+            <button type="button" class="btn pos-btn" onclick="closeWindow()">
+                <img class="pos-image" src="images/exit-icon.png"/>
+                <p class="pos-description">Exit</p>
+                <span>Close Program</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function closeWindow() {
+        if (confirm("Are you sure you want to close this window?")) {
+            window.close();
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const dateTodayButton = document.getElementById('date-today');
+        const today = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const formattedDate = today.toLocaleDateString('en-US', options);
+        dateTodayButton.querySelector('h5').textContent = formattedDate;
+    });
+
+    
+</script>
+</body>
+</html>
